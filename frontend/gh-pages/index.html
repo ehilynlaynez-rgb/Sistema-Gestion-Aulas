@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Intecap · Sistema Aulas (Demo)</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="brand"><b>Intecap</b> <small>· Sistema de Aulas</small></div>
+    <div class="auth">
+      <input id="user" placeholder="Usuario"/>
+      <input id="pass" type="password" placeholder="Contraseña"/>
+      <button class="button" onclick="login()">Entrar</button>
+      <a class="link" href="#" onclick="toggleReg()">Registrarme</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="regBox" style="display:none;margin:12px 0;">
+      <input id="r_user" placeholder="Nuevo usuario"/>
+      <input id="r_pass" type="password" placeholder="Contraseña"/>
+      <select id="r_role">
+        <option value="usuario">Usuario</option>
+        <option value="tecnico">Técnico</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button class="button" onclick="register()">Crear cuenta</button>
+    </div>
+
+    <section class="kpis">
+      <div class="kpi"><b id="k_aulas">Aulas: 0</b></div>
+      <div class="kpi"><b id="k_ocupadas">Ocupadas: 0</b></div>
+      <div class="kpi"><b id="k_recursos">Recursos: 0</b></div>
+      <input id="q" class="search" placeholder="Buscar aula o recurso..." oninput="draw()"/>
+    </section>
+
+    <div id="modulos"></div>
+  </div>
+
+  <footer class="footer">Administración Aulas · Demo Intecap</footer>
+
+  <script>
+    let db = { aulas:[], recursos:[] }, user=null;
+    async function load(){ db = await (await fetch('data.json')).json(); draw(); }
+    function toggleReg(){ const b = document.getElementById('regBox'); b.style.display = (b.style.display==='none'?'block':'none'); }
+    function register(){
+      const u = document.getElementById('r_user').value.trim();
+      const p = document.getElementById('r_pass').value;
+      const r = document.getElementById('r_role').value;
+      if(!u||!p){ alert('Usuario y contraseña'); return; }
+      const users = JSON.parse(localStorage.getItem('users')||'[]');
+      if(users.find(x=>x.u===u)){ alert('Ya existe'); return; }
+      users.push({u, p, r}); localStorage.setItem('users', JSON.stringify(users));
+      alert('Registrado'); toggleReg();
+    }
+    function login(){
+      const u = document.getElementById('user').value.trim();
+      const p = document.getElementById('pass').value;
+      const users = JSON.parse(localStorage.getItem('users')||'[]');
+      const ok = users.find(x=>x.u===u && x.p===p) || (u==='admin' && p==='admin123');
+      if(!ok){ alert('Credenciales inválidas'); return; }
+      user = {username:u, role: ok.r || 'admin'};
+      draw();
+    }
+    function group(arr, key){ return arr.reduce((m,x)=>((m[x[key]]=(m[x[key]]||[])).push(x),m),{}); }
+    function draw(){
+      const q = (document.getElementById('q').value||'').toLowerCase();
+      const aulas = db.aulas.filter(a=> (a.Nombre+a.Modulo+a.Id).toLowerCase().includes(q));
+      document.getElementById('k_aulas').textContent = 'Aulas: '+aulas.length;
+      document.getElementById('k_ocupadas').textContent = 'Ocupadas: 0';
+      document.getElementById('k_recursos').textContent = 'Recursos: '+db.recursos.length;
+      const byM = group(aulas,'Modulo'); const wrap = document.getElementById('modulos'); wrap.innerHTML='';
+      Object.keys(byM).sort().forEach(m=>{
+        const sec = document.createElement('section'); sec.className='module';
+        sec.innerHTML = '<h3>'+m+'</h3><div class="grid"></div>'; const grid = sec.querySelector('.grid');
+        byM[m].forEach(a=>{
+          const d = document.createElement('div'); d.className='tile';
+          d.innerHTML = '<div class="tag">Aula '+a.Id+'</div><div><b>'+a.Nombre+'</b></div><span class="badge">Libre</span>';
+          grid.appendChild(d);
+        });
+        wrap.appendChild(sec);
+      });
+    }
+    load();
+  </script>
+</body>
+</html>
