@@ -1,0 +1,150 @@
+{
+  "aulas": [
+    {
+      "Id": 1,
+      "Nombre": "Aula 1",
+      "Modulo": "Módulo 1"
+    },
+    {
+      "Id": 3,
+      "Nombre": "Aula 3",
+      "Modulo": "Módulo 1"
+    },
+    {
+      "Id": 4,
+      "Nombre": "Aula 4",
+      "Modulo": "Módulo 1"
+    },
+    {
+      "Id": 5,
+      "Nombre": "Salón Ejecutivo",
+      "Modulo": "Módulo 1"
+    },
+    {
+      "Id": 6,
+      "Nombre": "Salón de Enderezado",
+      "Modulo": "Módulo 1"
+    }
+  ],
+  "recursos": [
+    {
+      "Id": 1,
+      "Aula_ID": 1,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-56413",
+      "Estado": "OK"
+    },
+    {
+      "Id": 2,
+      "Aula_ID": 1,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-72879",
+      "Estado": "OK"
+    },
+    {
+      "Id": 3,
+      "Aula_ID": 1,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-72933",
+      "Estado": "OK"
+    },
+    {
+      "Id": 19,
+      "Aula_ID": 1,
+      "Tipo": "Pizarrón",
+      "Codigo": "I-304-9775",
+      "Estado": "OK"
+    },
+    {
+      "Id": 20,
+      "Aula_ID": 1,
+      "Tipo": "Mesa",
+      "Codigo": "I-302-18914",
+      "Estado": "OK"
+    },
+    {
+      "Id": 21,
+      "Aula_ID": 3,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-72959",
+      "Estado": "OK"
+    },
+    {
+      "Id": 31,
+      "Aula_ID": 3,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-72863",
+      "Estado": "OK"
+    },
+    {
+      "Id": 41,
+      "Aula_ID": 3,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-72891",
+      "Estado": "OK"
+    },
+    {
+      "Id": 42,
+      "Aula_ID": 3,
+      "Tipo": "Mesa",
+      "Codigo": "I-302-16609",
+      "Estado": "OK"
+    },
+    {
+      "Id": 43,
+      "Aula_ID": 4,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-72955",
+      "Estado": "OK"
+    },
+    {
+      "Id": 66,
+      "Aula_ID": 4,
+      "Tipo": "Pizarrón",
+      "Codigo": "I-304-45043",
+      "Estado": "OK"
+    },
+    {
+      "Id": 67,
+      "Aula_ID": 5,
+      "Tipo": "Mesa",
+      "Codigo": "I-302-135971",
+      "Estado": "OK"
+    },
+    {
+      "Id": 90,
+      "Aula_ID": 5,
+      "Tipo": "Mesa",
+      "Codigo": "I-304-55862",
+      "Estado": "OK"
+    },
+    {
+      "Id": 112,
+      "Aula_ID": 5,
+      "Tipo": "Mesa",
+      "Codigo": "3F-01-07-040",
+      "Estado": "OK"
+    },
+    {
+      "Id": 123,
+      "Aula_ID": 6,
+      "Tipo": "Escritorio",
+      "Codigo": "I-304-80520",
+      "Estado": "OK"
+    },
+    {
+      "Id": 141,
+      "Aula_ID": 6,
+      "Tipo": "Mesa",
+      "Codigo": "I-302-10568",
+      "Estado": "OK"
+    },
+    {
+      "Id": 142,
+      "Aula_ID": 6,
+      "Tipo": "Mesa",
+      "Codigo": "I-328-136038",
+      "Estado": "OK"
+    }
+  ]
+}

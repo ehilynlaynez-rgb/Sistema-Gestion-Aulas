@@ -1,0 +1,18 @@
+/* Intecap UI - GitHub Pages Demo */
+:root{--azul:#0033A0;--amarillo:#FFC423;--azulClaro:#2E79B9;--gris:#F3F4F6;--card:#fff;--texto:#0f172a;--muted:#64748b}
+*{box-sizing:border-box} body{margin:0;background:var(--gris);color:var(--texto);font-family:Inter,Segoe UI,system-ui,Arial}
+.header{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:18px 24px;background:var(--card);box-shadow:0 8px 24px rgba(0,0,0,.06);position:sticky;top:0}
+.brand b{color:var(--azul)} .brand small{color:var(--muted)}
+.container{max-width:1200px;margin:18px auto;padding:0 16px}
+.kpis{display:flex;gap:10px;margin:12px 0}
+.kpi{background:var(--card);padding:12px 14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.search{padding:10px 12px;border-radius:10px;border:1px solid #d1d5db;min-width:260px}
+.module{margin:14px 0} .module h3{margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(6,minmax(160px,1fr));gap:10px}
+.tile{background:var(--card);border-left:6px solid var(--azulClaro);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.tile .tag{font-size:12px;color:var(--muted)} .badge{display:inline-block;margin-top:6px;padding:4px 8px;border-radius:999px;font-size:12px;background:#dcfce7;color:#14532d}
+.footer{text-align:center;color:var(--muted);padding:20px}
+.auth{display:flex;gap:8px;align-items:center}
+.button{background:var(--azul);color:#fff;border:0;border-radius:10px;padding:10px 12px;cursor:pointer}
+.link{color:var(--azul);text-decoration:none}
+@media (max-width:1100px){ .grid{grid-template-columns:repeat(3,minmax(160px,1fr))} }
